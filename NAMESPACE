@@ -1,8 +1,13 @@
 exportPattern("^[^unique]")
 
+
 import(ape, Biostrings)
 importFrom(geiger, heights, rescale)
 importFrom(phangorn, nni, rNNI)
+importFrom("grDevices", "dev.off", "pdf")
+importFrom("graphics", "layout", "lines", "matplot", "plot", "points", "segments", "text")
+importFrom("stats", "as.dist", "lm", "predict")
+importFrom("utils", "read.delim", "write.table")
 
 S3method(plot, locus.dist)
 S3method(plot, partitionedRAD)
