@@ -16,9 +16,9 @@ function(x, N = 200, filebase = 'trial', method = c('nni', 'random'), maxmoves =
   if(method[1] == 'nni') {
 	for(i in seq(maxmoves)) {
 	  message(paste('doing maxmoves', i))
-	  if(i == 1) treeset <- c(x, .uncompressTipLabel(nni(x)))
+	  if(i == 1) treeset <- c(x, nni(x))
 	  # else treeset <- c(treeset, rNNI(x, i, perms[i]))
-	  else treeset <- c(treeset, .uncompressTipLabel(unique(rNNI(x, i, perms[i] * 1.5))))
+	  else treeset <- c(treeset, unique(rNNI(x, i, perms[i] * 1.5)))
 	  treeset <- unroot(treeset)
 	  if(length(treeset) >= sum(perms[1:i], 1)) treeset <- unique(treeset)[1:sum(perms[1:i], 1)]
 	  else(warning(paste('Treeset only includes', length(treeset), 'trees of the', sum(perms[1:i], 1), 'expected')))
